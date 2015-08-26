@@ -10,6 +10,7 @@ used as a way to easily navigate kernel memory by symbol and also have a valid s
 compare code against from /proc/kcore.
 
 # Example
+<pre>
 ryan@elfmaster:~/kdress$ sudo ./kdress vmlinuz-`uname -r` vmlinux /boot/System.map-`uname -r`
 
 [+] vmlinux has been successfully extracted
@@ -18,4 +19,4 @@ ryan@elfmaster:~/kdress$ sudo ./kdress vmlinuz-`uname -r` vmlinux /boot/System.m
 ryan@elfmaster:~/kdress$ sudo readelf -s vmlinux | grep sys_call_table
  33268: ffffffff81801400  4368 OBJECT  GLOBAL DEFAULT    4 sys_call_table
  33421: ffffffff81809ca0  2928 OBJECT  GLOBAL DEFAULT    4 ia32_sys_call_table
-
+</pre>
