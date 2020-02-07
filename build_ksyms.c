@@ -18,6 +18,7 @@
 #include <link.h>
 #include <sys/mman.h>
 #include <errno.h>
+#include <ctype.h>
 
 #define MAX_KSYMS 100000
 #define MAX_SHDRS 64
