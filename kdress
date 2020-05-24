@@ -4,7 +4,7 @@ import os
 import subprocess
 
 if (len(sys.argv) < 4):
-	print 'Usage: ./kdress <vmlinuz> <vmlinux> <System.map>\n'
+	print('Usage: ./kdress <vmlinuz> <vmlinux> <System.map>\n')
 	sys.exit(-1)
 
 subprocess.call(['./kunpress', sys.argv[1], sys.argv[2]])
