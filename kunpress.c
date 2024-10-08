@@ -37,8 +37,8 @@ int main(int argc, char **argv)
 	uint8_t *p, *mem;
 	int fd, out;
 	struct stat st;
-	
-	int i, offset = 0;
+	int i;
+        int offset = -1;
 
 	if (argc < 3)
 	{
@@ -68,13 +68,14 @@ int main(int argc, char **argv)
 
 	for (p = mem, i = 0; i < st.st_size; i++)
 	{
-		if (p[i] == 0x1f && p[i + 1] == 0x8b && p[i + 2] == 0x08 && p[i + 3] == 0x00)
+		if (p[i] == 0x1f && p[i + 1] == 0x8b && p[i + 2] == 0x08)
 		{
+			printf("Offset %d\n", i);
 			offset = i;
 			break;
 		}
 	}
-	if (offset == 0)
+	if (offset == -1)
 	{
 		printf("Could not find gzip magic within target kernel image: %s\n", argv[1]);
 		exit(0);
